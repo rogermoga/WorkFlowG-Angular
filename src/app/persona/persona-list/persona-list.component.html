@@ -1,0 +1,24 @@
+//persona-list.component.html
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Fecha de Nacimiento</th>
+      <th scope="col">Email</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas">
+      <td>{{persona.nombre}}</td>
+      <td>{{persona.apellido}}</td>
+      <td>{{persona.fechaNacimiento}}</td>
+      <td>{{persona.email | estadoEmail}}</td>
+      <td><button type="button" class="button btn btn-primary" (click)="print(persona)">Imprimir</button></td>
+      <td><button type="button" class="button btn btn-primary" (click)="onDelete(persona)">Borrar</button></td>
+    </tr>
+  </tbody>
+</table>
+<!--pre>{{tareas | json}}</pre-->

@@ -1,0 +1,33 @@
+//tarea-list.component.html
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Código</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Aplicación</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Fecha alta</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Despliegue</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let tarea of tareas" >
+      
+      <th scope="row"(click)="onSelect(tarea)">{{tarea.codigo}}</th>
+      <td (click)="onSelect(tarea)">{{tarea.descripcion}}</td>
+      <td (click)="onSelect(tarea)">{{tarea.aplicacion}}</td>
+      <td (click)="onSelect(tarea)">{{tarea.tipo}}</td>
+      <td (click)="onSelect(tarea)">{{tarea.estado |estadoTarea }}</td>
+      <td (click)="onSelect(tarea)">{{tarea.fechaAlta}}</td>
+      <td (click)="onSelect(tarea)">{{tarea.usuario}}</td>
+      <td (click)="onSelect(tarea)">{{tarea.despliegue}}</td>
+      <td><button type="button" class="button btn btn-primary" (click)="print(tarea)">Imprimir</button></td>
+      <td><button type="button" class="button btn btn-primary" (click)="onDelete(tarea)">Borrar</button></td>
+    </tr>
+    
+  </tbody>
+</table>
+<!--pre>{{tareas | json}}</pre-->

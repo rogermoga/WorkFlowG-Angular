@@ -1,0 +1,52 @@
+
+<div class="row py-md-3">
+  <div class="col-0 col-xl-1"></div>
+  <div class="col-12 col-xl-10">
+    <div class="card">
+      <div class="card-header">
+        Persona
+      </div>
+      <div class="card-body">
+        <form role="form" [formGroup]="personaForm">
+          <div class="control-group row">
+ 
+            <div class="form-group col-3">
+              <label class="form-control-label" for="nombre">Nombre *</label>
+              <input type="text" class="form-control" id="nombre" formControlName="nombre" 
+                name="nombre" placeholder="Nombre de la Persona">
+            </div>
+            <div class="form-group col-4">
+              <label class="form-control-label" for="apellido">Apellido *</label>
+              <input type="text" class="form-control" id="apellido" formControlName="apellido" 
+                name="apellido" placeholder="Apellido de la persona">
+            </div>
+            <div class="form-group col-5">
+              <label class="form-control-label" for="fechaNacimiento">Fecha Nacimiento *</label>
+              <input type="text" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento" 
+                name="fechaNacimiento" placeholder="Fecha de nacimiento de la persona">
+            </div>
+            <div class="form-group col-6">
+              <label class="form-control-label" for="email">Email *</label>
+              <input type="text" class="form-control" id="email" formControlName="email" 
+                name="email" placeholder="Email">
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="card-footer text-right">
+        <button type="button" class="button btn btn-secondary" (click)="onReturn()">Volver</button>
+        <button type="button" class="button btn btn-secondary" (click)="onNew()">Nuevo</button>
+        <button type="button" class="button btn btn-primary" (click)="onSuccess()">Guardar</button>
+      </div>
+    </div>
+    <!-- <div class="form-group col-2">
+        
+      <div *ngIf="personaForm.controls.codigo.invalid && personaForm.controls.codigo.touched" 
+    class="alert alert-danger">
+        El código es obligatorio
+      </div>
+    </div> -->
+  </div>
+  <div class="col-0 col-xl-1"></div>
+</div>
