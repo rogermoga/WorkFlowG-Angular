@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TareaId } from './shared/tarea-id';
 
+/**
+ * This component serves as a comunication channel between tarea-item and tarea-list
+ */
 @Component({
   selector: 'wfg-tarea',
   templateUrl: './tarea.component.html',
@@ -22,7 +25,9 @@ export class TareaComponent implements OnInit {
     console.log(tarea);
     this.tarea = null;
   }
-
+/**
+ * the initializing component method
+ */
   ngOnInit() {
   }
 

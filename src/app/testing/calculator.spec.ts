@@ -1,6 +1,6 @@
 import { Calculator } from "./calculator";
 
-fdescribe('TestSuite para probar la calculadora', () =>{
+describe('TestSuite para probar la calculadora', () =>{
     it('Pruebas de multiply debe retornar 9', () =>{
         //Arrange
         let calculator = new Calculator();

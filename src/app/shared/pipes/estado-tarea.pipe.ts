@@ -1,5 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+/**
+ * Pipe that evaluates the value of the selector if it's DES it displays Desarrollo.
+ * In any other cases it returns Producción
+ */
 @Pipe({
   name: 'estadoTarea'
 })

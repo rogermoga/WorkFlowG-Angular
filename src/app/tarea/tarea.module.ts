@@ -8,13 +8,16 @@ import { TareaService } from 'src/app/tarea/shared/tarea.service';
 import { SharedPipesModule } from '../shared/pipes/shared-pipes.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { TareaPrintComponent } from './tarea-print/tarea-print.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 
 @NgModule({
   imports: [
     CommonModule,
     TareaRoutingModule,
     SharedPipesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   providers: [TareaService],
   declarations: [TareaComponent, TareaListComponent, TareaItemComponent, TareaPrintComponent]

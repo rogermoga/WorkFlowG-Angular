@@ -1,0 +1,13 @@
+#datatablediv{
+    display:block;
+    border: 3px black solid;
+    margin-left: 30px;
+}
+
+#datatable{
+    display: flex;
+}
+
+ngx-datatable-column{
+    font-weight: bold;
+}

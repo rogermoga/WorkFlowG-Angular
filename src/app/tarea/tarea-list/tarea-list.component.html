@@ -25,9 +25,62 @@
       <td (click)="onSelect(tarea)">{{tarea.usuario}}</td>
       <td (click)="onSelect(tarea)">{{tarea.despliegue}}</td>
       <td><button type="button" class="button btn btn-primary" (click)="print(tarea)">Imprimir</button></td>
-      <td><button type="button" class="button btn btn-primary" (click)="onDelete(tarea)">Borrar</button></td>
+      <td><button type="button" class="button btn btn-primary" (click)="open(content, tarea)">Borrar</button></td>
     </tr>
     
   </tbody>
 </table>
+<div id="datatablediv" class="col-md-11">
+
+  <ngx-datatable
+    [rows]="rows" 
+    [rowHeight]="'50'"
+    [style.color]="titlestyle"
+    (activate)='onSelect($event)' id="datatable">
+    
+  
+    <ngx-datatable-column name="Codigo"  width=80 ></ngx-datatable-column>
+    <ngx-datatable-column name="Descripcion" width=110></ngx-datatable-column>
+    <ngx-datatable-column name="Aplicacion"></ngx-datatable-column>
+    <ngx-datatable-column name="Tipo" width=80></ngx-datatable-column>
+    <ngx-datatable-column name="Estado"></ngx-datatable-column>
+    <ngx-datatable-column name="Fecha Alta"></ngx-datatable-column>
+    <ngx-datatable-column name="Usuario"></ngx-datatable-column>
+    <ngx-datatable-column name="Despliegue"></ngx-datatable-column>
+    <ngx-datatable-column name="">
+        <ng-template let-row="row" let-value="imprimir" ngx-datatable-cell-template>
+          <button type="button" class="button btn btn-primary" (click)="print(row)">Imprimir</button>
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="">
+        <ng-template let-row="row" let-value="borrar" ngx-datatable-cell-template>
+          <button type="button" class="button btn btn-primary" (click)="open(content, row)">Borrar</button>
+        </ng-template>
+    </ngx-datatable-column>
+  
+</ngx-datatable>
+
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Cuidado!</h4>
+  </div>
+  <div class="modal-body">
+    <p>Seguro que quieres borrar?&hellip;</p>
+  </div>
+  <div  class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Borrar</button>
+    <button type="button" class="btn btn-secondary" (click)="d('Cross click')">Cancelar</button>
+  </div>
+</ng-template>
+
+<hr>
+
+<pre>{{closeResult}}</pre>
+
+
 <!--pre>{{tareas | json}}</pre-->

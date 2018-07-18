@@ -5,6 +5,9 @@ import { TareaService } from '../shared/tarea.service';
 import { TareaId } from '../shared/tarea-id';
 import { fechaValidator } from '../../shared/validators/fechaValidator';
 
+/**
+ * This component displays the form to add and modify existing tareas
+ */
 @Component({
   selector: 'wfg-tarea-item',
   templateUrl: './tarea-item.component.html',
@@ -12,14 +15,24 @@ import { fechaValidator } from '../../shared/validators/fechaValidator';
 })
 export class TareaItemComponent implements OnInit {
 
+  /**
+   * The tarea that is being sent from the list to edit the fields
+   */
   @Input() tarea: TareaId;
+
+  /**
+   * The tarea we are sending back to the list
+   */
   @Output() notify: EventEmitter<Tarea> = new EventEmitter<Tarea>();
   tareaForm: FormGroup;
   estados = [
     { label: "Desarrollo", value: "DES" },
     { label: "Produccion", value: "PRO" }
   ]
-
+/**
+ * The form gets initialized
+ * @param {TareaService} tareaService 
+ */
   constructor(private tareaService: TareaService) {
     console.log('Constructor de tarea-item');
     this.tareaForm = new FormGroup({
@@ -38,6 +51,9 @@ export class TareaItemComponent implements OnInit {
     console.log('Init de tarea-item');
   }
 
+/**
+ * detects the changes on the fields
+ */
   ngOnChanges() {
     console.log('Change de tarea-item');
     if (this.tarea && this.tarea.id) {
@@ -52,9 +68,12 @@ export class TareaItemComponent implements OnInit {
       controls['despliegue'].setValue(this.tarea.despliegue);
     }
   }
-
+/**
+ * reads the value of the fields and saves them into a variable.
+ * If there is an existing Id it calls the method to update the tarea, if its not 
+ * it creates the method to insert a new tarea.
+ */
   onSuccess() {
-
     this.markFormGroupTouched(this.tareaForm);
     console.log("all fields have been touched");
     console.log(this.tarea);
@@ -80,7 +99,10 @@ export class TareaItemComponent implements OnInit {
       });
     }
   }
-
+/**
+ * This method is being used to mark all fields as touched
+ * @param formGroup The form variable
+ */
   markFormGroupTouched(formGroup: FormGroup) {
 
     (<any>Object).values(formGroup.controls).forEach(control => {

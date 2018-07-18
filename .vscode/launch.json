@@ -7,6 +7,13 @@
         {
             "type": "chrome",
             "request": "launch",
+            "name": "Launch test",
+            "url": "http://localhost:9876",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
             "name": "Lanzar Chrome contra localhost",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"

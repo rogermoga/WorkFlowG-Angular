@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar.component';
@@ -8,22 +8,21 @@ import { FakeBackendProvider } from './shared/interceptors/fakeBackendIntercepto
 import { JwtInterceptor } from './shared/interceptors/jwtIterceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TareaService } from './tarea/shared/tarea.service';
-import { TestComponent } from './test/test.component';
-
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    TestComponent
-    
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot(),
+    NgxDatatableModule
+
   ],
   providers: [TareaService,
     {
