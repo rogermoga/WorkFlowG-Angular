@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TareaListComponent } from './tarea-list.component';
 
+
+
 describe('TareaListComponent', () => {
   let component: TareaListComponent;
   let fixture: ComponentFixture<TareaListComponent>;
@@ -23,3 +25,4 @@ describe('TareaListComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

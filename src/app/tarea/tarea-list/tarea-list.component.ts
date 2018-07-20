@@ -21,7 +21,8 @@ export class TareaListComponent implements OnInit {
    */
   closeResult : string;
   obTareaService: any;
-  
+  temp: Array<TareaId>;
+  rows: Array<TareaId>;
 /**
   We change the color of the text of the table using Angular binding
 */
@@ -54,7 +55,7 @@ export class TareaListComponent implements OnInit {
   /**
    * We bind the rows variable to the tareas array. This way all the tareas get added to the table as rows
    */
-  rows = this.tareas;
+  
 
 
 /**
@@ -87,6 +88,7 @@ export class TareaListComponent implements OnInit {
     //this.tareas = this.tareaService.getTareas();
     this.obTareaService = this.tareaService.getTareasHttp().subscribe((tareas: TareaId[]) => {
       this.tareas = tareas;
+      this.temp= tareas;
       this.rows = tareas;
     });
   }

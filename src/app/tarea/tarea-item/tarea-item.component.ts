@@ -73,6 +73,20 @@ export class TareaItemComponent implements OnInit {
  * If there is an existing Id it calls the method to update the tarea, if its not 
  * it creates the method to insert a new tarea.
  */
+ onNew(){
+  this.markFormGroupUnTouched(this.tareaForm);
+      this.tareaForm.controls['codigo'].reset();
+      this.tareaForm.controls['descripcion'].reset();
+      this.tareaForm.controls['aplicacion'].reset();
+      this.tareaForm.controls['tipo'].reset();
+      this.tareaForm.controls['estadoTarea'].reset();
+      this.tareaForm.controls['usuario'].reset();
+      this.tareaForm.controls['despliegue'].reset();
+      this.tareaForm.controls['fechaAlta'].clearValidators();
+      this.tareaForm.controls['fechaAlta'].reset();
+      
+      
+ }
   onSuccess() {
     this.markFormGroupTouched(this.tareaForm);
     console.log("all fields have been touched");
@@ -110,6 +124,19 @@ export class TareaItemComponent implements OnInit {
       if (control.controls) {
         control.controls.forEach(c => this.markFormGroupTouched(c));
       }
+      console.log("fields marked as touched");
     });
   }
+
+   markFormGroupUnTouched(formGroup: FormGroup) {
+
+    (<any>Object).values(formGroup.controls).forEach(control => {
+      control.markAsUntouched();
+      if (control.controls) {
+        control.controls.forEach(c => this.markFormGroupUnTouched(c));
+      }
+      console.log("fields marked as untouched");
+    });
+  }
+
 }

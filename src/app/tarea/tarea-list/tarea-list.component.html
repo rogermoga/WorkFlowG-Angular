@@ -38,12 +38,13 @@
     [style.color]="titlestyle"
     (activate)='onSelect($event)' id="datatable">
     
-  
     <ngx-datatable-column name="Codigo"  width=80 ></ngx-datatable-column>
-    <ngx-datatable-column name="Descripcion" width=110></ngx-datatable-column>
+    <ngx-datatable-column name="Descripcion" width=70></ngx-datatable-column>
     <ngx-datatable-column name="Aplicacion"></ngx-datatable-column>
     <ngx-datatable-column name="Tipo" width=80></ngx-datatable-column>
-    <ngx-datatable-column name="Estado"></ngx-datatable-column>
+    <ngx-datatable-column name="Estado" width=80>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>{{value | estadoTarea}}</ng-template>
+    </ngx-datatable-column>
     <ngx-datatable-column name="Fecha Alta"></ngx-datatable-column>
     <ngx-datatable-column name="Usuario"></ngx-datatable-column>
     <ngx-datatable-column name="Despliegue"></ngx-datatable-column>
