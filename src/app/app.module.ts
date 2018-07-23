@@ -10,11 +10,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TareaService } from './tarea/shared/tarea.service';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
