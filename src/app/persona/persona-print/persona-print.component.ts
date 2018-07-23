@@ -29,6 +29,8 @@ export class PersonaPrintComponent implements OnInit, OnDestroy {
   constructor(private PersonaService: PersonaService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
+    console.log("persona print init");
     this.params = this.activatedRoute.params.subscribe(params => this.id = params['id']);
     this.PersonaService.getPersonaHttp(this.id).subscribe((persona: Persona) => {
       this.persona = persona;

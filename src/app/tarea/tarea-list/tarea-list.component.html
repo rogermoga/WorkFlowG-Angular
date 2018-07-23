@@ -1,6 +1,6 @@
 //tarea-list.component.html
 
-<table class="table">
+<!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">Código</th>
@@ -29,7 +29,7 @@
     </tr>
     
   </tbody>
-</table>
+</table> -->
 <div id="datatablediv" class="col-md-11">
 
   <ngx-datatable
@@ -39,15 +39,15 @@
     (activate)='onSelect($event)' id="datatable">
     
     <ngx-datatable-column name="Codigo"  width=80 ></ngx-datatable-column>
-    <ngx-datatable-column name="Descripcion" width=70></ngx-datatable-column>
+    <ngx-datatable-column name="Descripcion" width=100></ngx-datatable-column>
     <ngx-datatable-column name="Aplicacion"></ngx-datatable-column>
     <ngx-datatable-column name="Tipo" width=80></ngx-datatable-column>
-    <ngx-datatable-column name="Estado" width=80>
+    <ngx-datatable-column name="Estado" width=100>
       <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>{{value | estadoTarea}}</ng-template>
     </ngx-datatable-column>
     <ngx-datatable-column name="Fecha Alta"></ngx-datatable-column>
-    <ngx-datatable-column name="Usuario"></ngx-datatable-column>
-    <ngx-datatable-column name="Despliegue"></ngx-datatable-column>
+    <ngx-datatable-column name="Usuario" width=100></ngx-datatable-column>
+    <ngx-datatable-column name="Despliegue" width=100></ngx-datatable-column>
     <ngx-datatable-column name="">
         <ng-template let-row="row" let-value="imprimir" ngx-datatable-cell-template>
           <button type="button" class="button btn btn-primary" (click)="print(row)">Imprimir</button>

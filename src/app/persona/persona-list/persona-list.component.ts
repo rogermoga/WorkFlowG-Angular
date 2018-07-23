@@ -73,7 +73,7 @@ export class PersonaListComponent implements OnInit {
 */
   print(persona: PersonaId){
     console.log(persona.id);
-    this.router.navigate([`persona/print/${persona.id}`]);
+    this.router.navigate([`personas/print/${persona.id}`]);
 }
 
 }
