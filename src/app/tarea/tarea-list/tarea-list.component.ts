@@ -58,18 +58,6 @@ export class TareaListComponent implements OnInit {
   
 
 
-/**
-* This function sends the tarea to the from(tarea-item). It checks if the event is click type and if the click did
-*not ocurr in any if the columns with no names, because those belong to the buttons.
-* 
-* @param {any} event This is the event that triggered on the table
-*/
-  onSelect(event: any) {
-    console.log(event);
-    if (event.type === 'click' && !(event.column.name ==='')){
-      this.notifyTarea.emit(event.row);
-    }
-  }
 
   /**
 * 
@@ -92,6 +80,20 @@ export class TareaListComponent implements OnInit {
       this.rows = tareas;
     });
   }
+
+  /**
+* This function sends the tarea to the from(tarea-item). It checks if the event is click type and if the click did
+*not ocurr in any if the columns with no names, because those belong to the buttons.
+* 
+* @param {any} event This is the event that triggered on the table
+*/
+  onSelect(event: any) {
+    console.log(event);
+    if (event.type === 'click' && !(event.column.name ==='')){
+      this.notifyTarea.emit(event.row);
+    }
+  }
+
 
     /**
 * It receives a tarea and calls the delete method from our function with the tarea ID.
